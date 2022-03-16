@@ -1,0 +1,79 @@
+<!DOCTYPE HTML>
+<html>
+        <head>
+	      <meta charset="UTF-8"/>
+		  <meta name="viewport" content="width=device-width, initial-scale=1">
+          <link rel="icon" href="{{ url_for('static', filename='images/icon.png')}}">
+		  <title>RPi AP Traveler</title>
+          <link rel="stylesheet" href="{{ url_for('static', filename='css/bootstrap.css')}}">
+		  <link rel="stylesheet" href="{{ url_for('static', filename='css/album.css')}}" >
+		  <script src="{{ url_for('static', filename='js/bootstrap.js')}}"></script>
+		  <script src="{{ url_for('static', filename='js/jquery-3.6.0.js')}}"></script>
+	    </head>
+        <style>
+            a.card,
+            a.card:hover {
+              color: #212529;
+              text-decoration: none;
+            }
+            .card-img-top {
+              width: 100%;
+              object-fit: cover;
+            }
+            a{
+					    text-decoration: none;
+					    color: #000;
+					  }
+        </style>
+	<body>
+	<!-- Navbar -->
+	<nav class="navbar navbar-expand-lg navbar-light bg-light static-top shadow">
+  		<div class="container-fluid">
+  		  <a class="navbar-brand" href="/">RPi AP Traveler</a>
+  		  <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+  		    <span class="navbar-toggler-icon"></span>
+  		  </button>
+  		  <div class="collapse navbar-collapse" id="navbarNav">
+  		    <ul class="navbar-nav">
+  		      <li class="nav-item">
+  		        <a class="nav-link" href="/wifi">WiFi Client</a>
+  		      </li>
+            <li class="nav-item">
+  		        <a class="nav-link" href="#">VPN Settings</a>
+  		      </li>
+  		    </ul>
+  		  </div>
+  		</div>
+	</nav>
+	<main role="main">
+    <!--Introducing-->
+      <section class="jumbotron text-center">
+        <div class="container">
+          <h1 class="jumbotron-heading">Dashboard</h1>
+        </div>
+      </section>
+      <!--Album-->
+      <div class="album py-5 bg-light">
+        <div class="container">
+          <div class="row">
+          </div>
+        </div>
+      </div>
+    </main>
+	<!--Footer-->
+    <footer class="my-5 pt-5 text-muted text-center text-small">
+        <p class="mb-1">RPi AP</p>
+        <ul class="list-inline">
+          <li class="list-inline-item"><a href="#">Back to top</a></li>
+        </ul>
+    </footer>
+	<!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+	<script src="{{ url_for('static', filename='js/popper.min.js')}}"></script>
+    <script src="{{ url_for('static', filename='js/bootstrap.js')}}"></script>
+    <script src="{{ url_for('static', filename='js/holder.min.js')}}"></script>
+	</body>
+</html>
+
+

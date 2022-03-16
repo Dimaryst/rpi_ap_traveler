@@ -1,0 +1,35 @@
+<!DOCTYPE HTML>
+<html>
+      <head>
+	      <meta charset="UTF-8"/>
+		  <meta name="viewport" content="width=device-width, initial-scale=1">
+		  <title>AP Settings</title>
+
+		  <link rel="icon" href="{{ url_for('static', filename='images/icon.png')}}">
+          <link rel="stylesheet" href="{{ url_for('static', filename='css/bootstrap.css')}}">
+          <link rel="stylesheet" href="{{ url_for('static', filename='css/floating-labels.css')}}">
+		  <script src="{{ url_for('static', filename='js/bootstrap.js')}}"></script>
+		  <script src="{{ url_for('static', filename='js/jquery-3.6.0.js')}}"></script>
+	  </head>
+	<body>
+        <form class="form-signin" method="POST">
+            <div class="text-center mb-4">
+              <h1 class="h3 mb-3 font-weight-normal">Enter Password</h1>
+              <p>Enter password for "{{network_ssid}}"</p>
+            </div>
+
+            <div class="form-label-group">
+                <!--<input type="password" name="password">-->
+              <input type="password" name="password" autocomplete="off" id="password" class="form-control" placeholder="Password">
+              <label for="password">Password</label>
+            </div>
+
+            <div class="container text-center">
+            <div class="btn-group" role="group">
+                <button class="btn btn-primary" role="button" value="Submit">Join</button>
+                <a class="btn btn-secondary" href="/" role="button">Cancel</a>
+              </div>
+            </div>
+          </form>
+    </body>
+ </html>
