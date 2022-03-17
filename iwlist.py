@@ -45,8 +45,7 @@ def get_networks_wpa_supplicant():
 # get current ap info
 def get_ap_network_wpa_supplicant():
     regExNetwork = re.compile(
-        r"network=\{\s*ssid=\"(?P<ssid>.*)\"\s*psk=\"(?P<psk>.*)\s*key_mgmt=(?P<key_mgmt>.*)\s*mode=(?P<mode>.*)\s*frequency=(?P<frequency>.*)\s\}")
-    
+        r"network=\{\s*ssid=\"(?P<ssid>.*)\"\s*mode=(?P<mode>.*)\s*frequency=(?P<frequency>.*)\s*key_mgmt=(?P<key_mgmt>.*)\s*proto=(?P<proto>.*)\s*pairwise=(?P<pairwise>.*)\s*psk=(?P<psk>.*)\s\}")
     with open('/etc/wpa_supplicant/wpa_supplicant-wlan0.conf') as wpa_config:
         conf_text = wpa_config.read()
         result = regExNetwork.search(conf_text)
@@ -57,13 +56,13 @@ def get_ap_network_wpa_supplicant():
 
 def remove_known_networks_from_list(known_networks, networks_list):
     self_ap = get_ap_network_wpa_supplicant()
-    print(self_ap)
+    print("self_ap = ", self_ap)
     known_networks.append(self_ap)
-    print(known_networks)
+    gitprint(known_networks)
     for known_network in known_networks:
         for network in networks_list:
             try:
-                if known_network['ssid'] == network['ssid']:
+                if known_network['ssid'] == network['ssid'] or network['ssid'] == "":
                     networks_list.remove(network)
             except:
                 print('Error')        
