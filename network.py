@@ -53,10 +53,13 @@ def parse(content):
 
 # sudo required
 def scan_all(interface="wlan1"):
-    print("Scanning...")
-    cmd = ["iw", interface, "scan"]
-    proc = subprocess.Popen(cmd, stdout=subprocess.PIPE, stderr=subprocess.PIPE)
-    points = proc.stdout.read().decode('utf-8')
+    try:
+        print("Scanning...")
+        cmd = ["iw", interface, "scan"]
+        proc = subprocess.Popen(cmd, stdout=subprocess.PIPE, stderr=subprocess.PIPE)
+        points = proc.stdout.read().decode('utf-8')
+    except:
+        print("Scan error...")
 
 class Network:
     def __init__(self, ssid):
@@ -93,7 +96,7 @@ class NetworkController:
     def update(self):
         self.get_connected_network()
         self.get_available_networks()
-        
+
     def reset_wpa_supplicant(self):
         with open('/etc/wpa_supplicant/wpa_supplicant-wlan1.conf', 'w') as wpa_config:
             new_config = "ctrl_interface=DIR=/run/wpa_supplicant GROUP=netdev\nupdate_config=1\ncountry=RU\n"
@@ -141,6 +144,7 @@ class NetworkController:
         for nw in iw_cells:
             new_network = Network(nw['ssid'])
             new_network.mac = nw['mac']
+            new_network.encryption = nw['encryption']
             new_network.signal_quality = int(nw['signal_quality'])
             if int(nw['signal_quality']) >= 66:
                 new_network.signal_pic = "images/wifi-max.png"

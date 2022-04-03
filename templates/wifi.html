@@ -3,7 +3,7 @@
       <head>
 	      <meta charset="UTF-8"/>
 		  <meta name="viewport" content="width=device-width, initial-scale=1">
-		  <title>Altairika Fulldome Player</title>
+		  <title>RPi AP Traveler</title>
 
 		  <link rel="icon" href="{{ url_for('static', filename='images/icon.png')}}">
           <link rel="stylesheet" href="{{ url_for('static', filename='css/bootstrap.css')}}">
@@ -20,7 +20,7 @@
 		<!-- Navbar -->
 		<nav class="navbar navbar-expand-lg navbar-light bg-light static-top shadow">
 			<div class="container-fluid">
-			  <a class="navbar-brand" href="/">RPi AP Traveler</a>
+			  <a class="navbar-brand" href="/">Dashboard</a>
 			  <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
 				<span class="navbar-toggler-icon"></span>
 			  </button>
@@ -40,59 +40,43 @@
       <div class="py-5 text-center">
         <h2>Wi-Fi Settings</h2>
         <p class="lead">Here you can manage your networks.</p>
+		<p>
+			<a href="/wifi/scan" class="btn btn-primary my-2">Scan</a>
+			<a href="/wifi/reset_configuration" class="btn btn-danger my-2">Reset Network Configuration</a>
+		</p>	
       </div>
 	    <div class="container py-5">
 	  	<div class="container">
 		<table class="table table-striped">
 			   <thead>
 			   <tr>
-				   <th scope="col">Current Network</th>
+				   <th scope="col">Configured Network</th>
 				   <th scope="col"></th>
 			   </tr>
 			</thead>
-			{% for line in current_networks %}
 			   <tbody>
 			   <tr>
-				   <td>{{ line['ssid'] }}</td>
+				   <td>{{ connected_network.ssid }}</td>
 				   <td></td>
 			   </tr>
-			   </tbody>
-			{% endfor %}   
+			   </tbody>  
 	   </table>
 	   </div>
-	   <div class="container">
-	   <table class="table table-striped">
-			  <thead>
-			  <tr>
-				  <th scope="col">My Networks</th>
-				  <th scope="col"></th>
-			  </tr>
-			  </thead>
-			  {% for line in configured_networks %}
-			  <tbody>
-			  <tr>
-				  <td style="width:100%;">{{ line['ssid'] }}</td>
-				  <td style="width:100%;"><a href="/wifi/remove_network_{{line['ssid']}}"><img src="{{ url_for('static', filename='images/trash.png') }}" width="24" height="24"></a></td>
-			  </tr>
-			  </tbody>
-			  {% endfor %}
-	  </table>
-	  </div>
 	  <div class="container">
       <table class="table table-striped">
 			<thead>
 			<tr>
-				<th scope="col">Other Networks</th>
+				<th scope="col">Available Networks</th>
 				<th scope="col"></th>
 			</tr>
 			</thead>
-			{% for line in available_networks %}
+			{% for network in available_networks %}
 			<tbody>
 			<tr>
 					<td style="width:100%;">
-						<a href="/wifi/password_request_{{line['ssid']}}">{{ line['ssid'] }}</a>
+						<a href="/wifi/password_request_{{network.ssid}}">{{ network.ssid }}</a>
 				    </td>
-				<td style="width:100%;"><img src="{{ url_for('static', filename=line['signal_picture']) }}" width="24" height="24"></td>
+				<td style="width:100%;"><img src="{{ url_for('static', filename=network.signal_pic) }}" width="24" height="24"></td>
 			</tr>
 			</tbody>
 			{% endfor %}
@@ -101,7 +85,7 @@
 	  </div>
 	<!--Footer-->
     <footer class="my-5 pt-3 text-muted text-center text-small">
-        <p class="mb-1">Altairika Fulldome Player</p>
+        <p class="mb-1">RPiAP</p>
         <ul class="list-inline">
           <li class="list-inline-item"><a href="#">Back to top</a></li>
         </ul>

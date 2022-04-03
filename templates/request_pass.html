@@ -3,7 +3,7 @@
       <head>
 	      <meta charset="UTF-8"/>
 		  <meta name="viewport" content="width=device-width, initial-scale=1">
-		  <title>AP Settings</title>
+		  <title>RPi AP Traveler</title>
 
 		  <link rel="icon" href="{{ url_for('static', filename='images/icon.png')}}">
           <link rel="stylesheet" href="{{ url_for('static', filename='css/bootstrap.css')}}">
@@ -19,7 +19,6 @@
             </div>
 
             <div class="form-label-group">
-                <!--<input type="password" name="password">-->
               <input type="password" name="password" autocomplete="off" id="password" class="form-control" placeholder="Password">
               <label for="password">Password</label>
             </div>
@@ -27,7 +26,7 @@
             <div class="container text-center">
             <div class="btn-group" role="group">
                 <button class="btn btn-primary" role="button" value="Submit">Join</button>
-                <a class="btn btn-secondary" href="/" role="button">Cancel</a>
+                <a class="btn btn-secondary" href="/wifi" role="button">Cancel</a>
               </div>
             </div>
           </form>

@@ -1,11 +1,11 @@
 <!DOCTYPE HTML>
 <html>
-        <head>
-	      <meta charset="UTF-8"/>
+      <head>
+	    <meta charset="UTF-8"/>
 		  <meta name="viewport" content="width=device-width, initial-scale=1">
-          <link rel="icon" href="{{ url_for('static', filename='images/icon.png')}}">
+      <link rel="icon" href="{{ url_for('static', filename='images/icon.png')}}">
 		  <title>RPi AP Traveler</title>
-          <link rel="stylesheet" href="{{ url_for('static', filename='css/bootstrap.css')}}">
+      <link rel="stylesheet" href="{{ url_for('static', filename='css/bootstrap.css')}}">
 		  <link rel="stylesheet" href="{{ url_for('static', filename='css/album.css')}}" >
 		  <script src="{{ url_for('static', filename='js/bootstrap.js')}}"></script>
 		  <script src="{{ url_for('static', filename='js/jquery-3.6.0.js')}}"></script>
@@ -29,7 +29,7 @@
 	<!-- Navbar -->
 	<nav class="navbar navbar-expand-lg navbar-light bg-light static-top shadow">
   		<div class="container-fluid">
-  		  <a class="navbar-brand" href="/">RPi AP Traveler</a>
+  		  <a class="navbar-brand" href="/">Dashboard</a>
   		  <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
   		    <span class="navbar-toggler-icon"></span>
   		  </button>
@@ -54,10 +54,23 @@
       </section>
       <!--Album-->
       <div class="album py-5 bg-light">
-        <div class="container">
-          <div class="row">
-          </div>
+        <div class="container py-2" >
+            <div class="card">
+              <h5 class="card-header">WiFi Access Point Configuration</h5>
+              <div class="card-body">
+                <p class="card-text">SSID: {{self_ap.ssid}}</p>
+                <p class="card-text">Password: {{ self_ap.password }}</p>
+              </div>
+            </div>
         </div>
+        <div class="container py-3" >
+          <div class="card">
+            <h5 class="card-header">WiFi Current Network</h5>
+            <div class="card-body">
+              <p class="card-text">SSID: {{ connected_network.ssid }}</p>
+            </div>
+          </div>
+      </div>
       </div>
     </main>
 	<!--Footer-->
