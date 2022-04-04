@@ -59,6 +59,22 @@ class AvailableNetworks(Resource):
             result.append(dc) 
         return jsonify(result) 
 
+class SelfHotspot(Resource):
+    def get(self):
+        network_controller.update()
+        if network_controller.ap_network is not None:
+            result = {
+            "ssid": network_controller.ap_network.ssid, 
+            "password": network_controller.ap_network.password
+            } 
+            return jsonify(result)
+        else:
+            return None
+
+
 api.add_resource(AvailableNetworks, '/api/available_networks')
+api.add_resource(SelfHotspot, '/api/self_hotspot')
+
+
 if __name__ == "__main__":
     app.run(debug=True, host="192.168.26.1")
