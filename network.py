@@ -112,7 +112,7 @@ class NetworkController:
 
     def get_ap_network(self):
         regExNetwork = re.compile(
-            r"network=\{\s*ssid=\"(?P<ssid>.*)\"\s*mode=(?P<mode>.*)\s*frequency=(?P<frequency>.*)\s*key_mgmt=(?P<key_mgmt>.*)\s*proto=(?P<proto>.*)\s*pairwise=(?P<pairwise>.*)\s*psk=(?P<psk>.*)\s\}")
+            r"network=\{\s*ssid=\"(?P<ssid>.*)\"\s*mode=(?P<mode>.*)\s*frequency=(?P<frequency>.*)\s*key_mgmt=(?P<key_mgmt>.*)\s*proto=(?P<proto>.*)\s*pairwise=(?P<pairwise>.*)\s*psk=\"(?P<psk>.*)\"\s\}")
         with open('/etc/wpa_supplicant/wpa_supplicant-wlan0.conf') as wpa_config:
             conf_text = wpa_config.read()
             result = regExNetwork.search(conf_text)
