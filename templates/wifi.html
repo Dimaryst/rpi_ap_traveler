@@ -74,7 +74,7 @@
 			<tbody>
 			<tr>
 					<td style="width:100%;">
-						<a href="/wifi/password_request_{{network.ssid}}">{{ network.ssid }}</a>
+						<a href="/wifi/password_request_{{network.ssid}}">{{ network.ssid }}  [{{ network.mac }}]</a>
 				    </td>
 				<td style="width:100%;"><img src="{{ url_for('static', filename=network.signal_pic) }}" width="24" height="24"></td>
 			</tr>

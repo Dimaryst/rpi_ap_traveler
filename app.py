@@ -71,10 +71,24 @@ class SelfHotspot(Resource):
         else:
             return None
 
+class ConfiguredNetwork(Resource):
+    def get(self):
+        network_controller.update()
+        if network_controller.connected_network is not None:
+            result = {
+                "ssid": network_controller.connected_network.ssid, 
+                "mac": "none",
+                "signal_quality": 0, 
+                "encryption": "off"
+            } 
+            return jsonify(result)
+        else:
+            return None
+
 
 api.add_resource(AvailableNetworks, '/api/available_networks')
 api.add_resource(SelfHotspot, '/api/self_hotspot')
-
+api.add_resource(ConfiguredNetwork, '/api/configured_network')
 
 if __name__ == "__main__":
     app.run(debug=True, host="192.168.26.1")

@@ -158,3 +158,5 @@ class NetworkController:
                     self.all_available_networks.append(new_network)
             elif new_network.ssid != self.ap_network.ssid and new_network.ssid != '':
                     self.all_available_networks.append(new_network)
+        for nw in self.all_available_networks:
+            print(nw.ssid, nw.mac)   
