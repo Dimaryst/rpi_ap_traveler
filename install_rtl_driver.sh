@@ -9,4 +9,3 @@ git clone https://github.com/aircrack-ng/rtl8812au.git
 cd rtl8812au
 echo 'MAKE'
 make dkms_install
-
