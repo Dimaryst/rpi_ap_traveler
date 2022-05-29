@@ -33,8 +33,10 @@ Insert before "exit 0"
   sudo python3 /home/pi/rpi_ap_traveler/app.py &
 ```  
   
+Start MITM to generate CA
 Reboot RPi and connect to web interface
 ```
+  mitmweb
   sudo reboot now
 ```
 http://192.168.26.1:5000
