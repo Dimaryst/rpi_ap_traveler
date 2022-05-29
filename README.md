@@ -1,5 +1,5 @@
 # RPi AP Traveler
-  AP Traveler for RPi. Use this web app to configure your RPi as AP Bridge with WireGuard. 
+  AP Traveler for RPi. Use this web app to configure your RPi as AP Bridge with MITMProxy. 
 
 ## Setup
 
