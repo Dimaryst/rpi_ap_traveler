@@ -2,7 +2,10 @@
   AP Traveler for RPi. Use this web app to configure your RPi as AP Bridge with WireGuard. 
 
 ## Setup
+
+Update your RPi and install packages (also you need to configure 'raspi-config' wlan settings)
 ```
+  sudo raspi-config
   sudo apt-get update
   sudo apt-get install mitmproxy
   sudo pip3 install flask
