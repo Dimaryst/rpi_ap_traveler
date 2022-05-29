@@ -8,6 +8,7 @@ Update your RPi and install packages (also you need to configure 'raspi-config' 
   sudo raspi-config
   sudo apt-get update
   sudo apt-get install mitmproxy
+  sudo apt-get install python3-pip
   sudo pip3 install flask
   sudo pip3 install flask-restful
   sudo ./install_rtl_driver.sh
