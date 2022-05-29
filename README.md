@@ -12,6 +12,7 @@ Update your RPi and install packages (also you need to configure 'raspi-config' 
   sudo pip3 install flask
   sudo pip3 install flask-restful
   sudo ./install_rtl_driver.sh
+  sudo ./configure_network.sh
   sudo reboot now
 ```
 
