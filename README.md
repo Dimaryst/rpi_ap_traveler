@@ -33,4 +33,8 @@ Insert before "exit 0"
   sudo python3 /home/pi/rpi_ap_traveler/app.py &
 ```  
   
-Reboot RPi and connect 192.168.26.1:5000
+Reboot RPi and connect to web interface
+```
+  sudo reboot now
+```
+http://192.168.26.1:5000
