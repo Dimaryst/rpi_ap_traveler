@@ -44,6 +44,14 @@ def index_page():
     network_controller.update()
     return render_template('index.html', self_ap=network_controller.ap_network, connected_network=network_controller.connected_network)
 
+@app.route('/mitm', methods=['GET'])
+def mitm_page():
+    return render_template('mitm.html')
+
+@app.route('/mitm/reconfigure_iptables', methods=['GET'])
+def mitm_reconfigure_iptables():
+    return redirect(url_for('mitm_page'))
+
 class AvailableNetworks(Resource):
     def get(self):
         network_controller.update()

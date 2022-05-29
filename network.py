@@ -61,6 +61,17 @@ def scan_all(interface="wlan1"):
     except:
         print("Scan error...")
 
+# mitm proxy
+def iptables_script():
+    try:
+        print("Working...")
+        cmd = ["configure_iptables.sh"] # ./configure_iptables.sh
+        proc = subprocess.Popen(cmd, stdout=subprocess.PIPE, stderr=subprocess.PIPE)
+        points = proc.stdout.read().decode('utf-8')
+    except:
+        print("IPTables Error...")
+
+
 class Network:
     def __init__(self, ssid):
         super().__init__()
