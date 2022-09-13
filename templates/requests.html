@@ -46,20 +46,24 @@
     <!--Introducing-->
       <section class="jumbotron text-center">
         <div class="container">
-          <h1 class="jumbotron-heading">Dashboard</h1>
+          <h1 class="jumbotron-heading">Requests</h1>
         </div>
       </section>
       <!--Album-->
       <div class="album py-5 bg-light">
         <div class="container py-2">
-            <div class="card">
-              <h5 class="card-header">Localhost Overview</h5>
+          {% for user in users %}
+            <div class="card" style="margin-bottom:50px;">
+              <h5 class="card-header">{{ user.name }}</h5>
               <div class="card-body">
                 <p class="card-text">Somthing to display</p>
                 <p class="card-text">NONE</p>
               </div>
             </div>
+            {% endfor %}  
         </div>
+      </div>
+      </div>
       </div>
     </main>
 	<!--Footer-->
